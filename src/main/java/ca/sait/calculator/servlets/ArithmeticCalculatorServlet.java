@@ -58,15 +58,22 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
 
                 if(calc.equals("+")){
                     result = first + second;
+                    request.setAttribute("plusColor", "rgb(75 75 75)");
                 }else if(calc.equals("-")){
                     result = first - second;
+                    request.setAttribute("minusColor", "rgb(75 75 75)");
                 }else if(calc.equals("*")){
                     result = first * second;
+                    request.setAttribute("multiplyColor", "rgb(75 75 75)");
                 }else{
                     result = first / second;
+                    request.setAttribute("divideColor", "rgb(75 75 75)");
                 }
-                
+               
                 request.setAttribute("message", String.format("Result: %s",result));
+                request.setAttribute("first", first);
+                request.setAttribute("second", second);
+                
             }catch(Exception e){
                 request.setAttribute("message", String.format("Invalid Number"));
             }
